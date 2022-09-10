@@ -1,0 +1,12 @@
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.deps.json
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.dll
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.pdb
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.csproj.AssemblyReference.cache
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.AssemblyInfoInputs.cache
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.AssemblyInfo.cs
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.csproj.CoreCompileInputs.cache
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.dll
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\refint\Events.Domain.dll
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.pdb
+C:\Users\DELL 7280\source\repos\Events\Events.Domain\obj\Debug\net6.0\ref\Events.Domain.dll
