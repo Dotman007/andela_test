@@ -10,5 +10,7 @@ namespace Events.Domain.Entities
     {
         public string Name { get; set; }
         public string City { get; set; }
+
+        public float Distance { get; set; }
     }
 }

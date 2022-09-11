@@ -19,7 +19,8 @@ namespace Events.Domain.MockData
                 {
                     City =  "New York",
                     Email =  "jsmith@yahoo.com",
-                    Name =  "John Smith"
+                    Name =  "John Smith",
+                    
                 },
                 new Customer
                 {

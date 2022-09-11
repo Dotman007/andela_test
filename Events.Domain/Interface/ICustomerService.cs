@@ -11,6 +11,8 @@ namespace Events.Domain.Interface
     {
         List<Customer> AllCustomer();
         List<EmailCampaign> GetCustomerByEventLocation();
+
+        List<EmailCampaign> GetClosestEventLocation(string eventCity, string customerCity);
         List<EmailCampaign> GetEventByName(string name);
     }
 }

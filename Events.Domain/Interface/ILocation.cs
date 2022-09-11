@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Events.Domain.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace Events.Domain.Interface
 {
     public interface ILocation
     {
-        long GetLatitudeLongitude(string customerCity, string eventCity);
+        CustomerLongitudeLatitudeDto GetCustomerLatitudeLongitude(string customerCity);
+        EventLongitudeLatitudeDto GetEventLatitudeLongitude(string eventCity);
+        float GetDistance(string customerCity, string eventCity);
+        float GetDistance(CustomerEventLongitudeLatitudeDto customer);
     }
 }

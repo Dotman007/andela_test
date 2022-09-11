@@ -16,3 +16,7 @@ C:\Users\DELL 7280\source\repos\Events\Events\obj\Debug\net6.0\refint\Events.dll
 C:\Users\DELL 7280\source\repos\Events\Events\obj\Debug\net6.0\Events.pdb
 C:\Users\DELL 7280\source\repos\Events\Events\obj\Debug\net6.0\Events.genruntimeconfig.cache
 C:\Users\DELL 7280\source\repos\Events\Events\obj\Debug\net6.0\ref\Events.dll
+C:\Users\DELL 7280\source\repos\Events\Events\bin\Debug\net6.0\RestSharp.dll
+C:\Users\DELL 7280\source\repos\Events\Events\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\DELL 7280\source\repos\Events\Events\bin\Debug\net6.0\GeoCoordinate.NetCore.dll
+C:\Users\DELL 7280\source\repos\Events\Events\bin\Debug\net6.0\System.Device.Portable.dll
