@@ -1,15 +1,21 @@
 ﻿using Events.Domain.Entities;
 using Events.Domain.Interface;
 using Events.Domain.Services;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Caching;
 
 public class Program
 {
     static void Main()
     {
+
+        Events.Domain.Utility.Utility.InitializeCache();
         ICustomerService _customer = new CustomerService();
         #region Get latitude and longitude by location
         ILocation _location = new LocationService();
-        //var getDistance = _location.GetDistance("New York", "New York");
+        var getDistance = _location.GetDistance("New York", "New York");
 
         #endregion
 
@@ -20,6 +26,7 @@ public class Program
         //var listOfCustomerEvents = _customer.GetCustomerByEventLocation();
         //#endregion
 
+        var getDistance2 = _location.GetDistance("New York", "New York");
         #region Approach for getting list of events by locations
         var listOfClosestEvent = _customer.GetClosestEventLocation("New York","Boston");
         #endregion

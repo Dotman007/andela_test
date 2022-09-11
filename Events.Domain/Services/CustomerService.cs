@@ -2,6 +2,7 @@
 using Events.Domain.Interface;
 using Events.Domain.MockData;
 using Events.Domain.Response;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,15 @@ namespace Events.Domain.Services
 {
     public class CustomerService: ICustomerService
     {
+        //public LvlData CurrentLevelData { get; set; }
+        public IMemoryCache _memoryCache { get; set; }
+        
         ILocation _locs = new LocationService();
         public List<Customer> AllCustomer()
         {
             return CustomerData.customerList;
         }
         
-
-
         public List<EmailCampaign> GetClosestEventLocation(string eventCity, string customerCity)
         {
 
@@ -59,7 +61,7 @@ namespace Events.Domain.Services
                 };
                 return emailCampaigns;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<EmailCampaign>
                 {
