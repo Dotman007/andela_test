@@ -14,5 +14,7 @@ namespace Events.Domain.Interface
 
         List<EmailCampaign> GetClosestEventLocation(string eventCity, string customerCity);
         List<EmailCampaign> GetEventByName(string name);
+        List<EmailCampaign> SortEventByLowerPrice(string eventCity, string customerCity);
+        List<EmailCampaign> SortEventByHigherPrice(string eventCity, string customerCity);
     }
 }

@@ -27,6 +27,10 @@ public class Program
         //#endregion
 
         var getDistance2 = _location.GetDistance("New York", "New York");
+
+
+        var sortByLowerPrice = _customer.SortEventByLowerPrice("New York", "New York");
+        var sortByHigherPrice = _customer.SortEventByHigherPrice("New York", "New York");
         #region Approach for getting list of events by locations
         var listOfClosestEvent = _customer.GetClosestEventLocation("New York","Boston");
         #endregion
@@ -34,6 +38,8 @@ public class Program
         #region If John Smith was the only client, we can filter out event that is related to John Smith Location
         var johnSmithEvents  = _customer.GetEventByName("John Smith");
         #endregion
+
+
 
         #region Called the add to email by getting clients events and passing the list as parameter to the email method
         //var emailSend = _sender.AddToEmail(listOfCustomerEvents);
