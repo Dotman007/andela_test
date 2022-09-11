@@ -12,8 +12,5 @@ namespace Events.Domain.Interface
         List<Event> GetAllEvents();
         List<Event> GetEventByCustomerCity(string customerCity);
 
-        List<Event> GetEventByDistance(string customerCity, string eventCity);
-
-        int GetDistance();
     }
 }
