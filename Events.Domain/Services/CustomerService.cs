@@ -1,6 +1,7 @@
 ﻿using Events.Domain.Entities;
 using Events.Domain.Interface;
 using Events.Domain.MockData;
+using Events.Domain.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,35 +24,57 @@ namespace Events.Domain.Services
         public List<EmailCampaign> GetClosestEventLocation(string eventCity, string customerCity)
         {
 
-
-            List<EmailCampaign> emailCampaigns = new List<EmailCampaign>();
-            List<Event> eventCampaigns = new List<Event>();
-            var getCustomer = CustomerData.customerList.Where(e=>e.City == customerCity);
-            foreach (var item in getCustomer)
+            try
             {
-                var getLocation = _locs.GetDistance(item.City, eventCity);
-                emailCampaigns.Add(new EmailCampaign
+                List<EmailCampaign> emailCampaigns = new List<EmailCampaign>();
+                List<Event> eventCampaigns = new List<Event>();
+                var getCustomer = CustomerData.customerList.Where(e => e.City == customerCity);
+                foreach (var item in getCustomer)
                 {
-                    CustomerName = item.Name,
-                    Distance = getLocation,
-                    Email = item.Email,
-                });
+                    var getLocation = _locs.GetDistance(item.City, eventCity);
+                    emailCampaigns.Add(new EmailCampaign
+                    {
+                        CustomerName = item.Name,
+                        Distance = getLocation.Distance,
+                        Email = item.Email,
+                    });
+                }
+                var getEvents = EventsData.eventList;
+                foreach (var item in getEvents)
+                {
+                    var getLocation = _locs.GetDistance(customerCity, item.City);
+                    eventCampaigns.Add(new Event
+                    {
+                        City = item.City,
+                        Distance = getLocation.Distance,
+                        Name = item.Name,
+                        Price = item.Price
+                    });
+                }
+                emailCampaigns[0].Events = eventCampaigns.OrderBy(eventCampaigns => eventCampaigns.Distance).Take(5).ToList();
+                emailCampaigns[0].Response = new Response.Response
+                {
+                    Code = ResponseMapping.Success00Code,
+                    Message = ResponseMapping.Success00Message
+                };
+                return emailCampaigns;
             }
-            var getEvents = EventsData.eventList;
-            foreach (var item in getEvents)
+            catch (Exception)
             {
-                var getLocation = _locs.GetDistance(customerCity, item.City);
-                eventCampaigns.Add(new Event
+                return new List<EmailCampaign>
                 {
-                    City = item.City,
-                    Distance = getLocation,
-                    Name = item.Name,
-                    Price = item.Price
-                });
+                    new EmailCampaign
+                    {
+                        Response =  new Response.Response
+                        {
+                                Code =  ResponseMapping.Error99Code,
+                                Message =  ResponseMapping.Error99Message
+                        }
+                    }
+                };
             }
-            emailCampaigns[0].Events = eventCampaigns.OrderBy(eventCampaigns=>eventCampaigns.Distance).Take(5).ToList();
 
-            return emailCampaigns;
+           
 
 
 
@@ -84,7 +107,7 @@ namespace Events.Domain.Services
                     CustomerLongitude = _locs.GetCustomerLatitudeLongitude(city.City).CustomerLongitude,
                     EventLatitude = _locs.GetEventLatitudeLongitude(eventCity.City).EventLatitude,
                     EventLongitude = _locs.GetEventLatitudeLongitude(eventCity.City).EventLongitude
-                }),
+                }).Distance,
                 Events = EventsData.eventList.Where(s=>s.City == city.City).ToList(),
             }).DistinctBy(e => e.CustomerName).ToList();
         }

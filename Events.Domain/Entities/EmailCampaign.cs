@@ -27,5 +27,7 @@ namespace Events.Domain.Entities
         public string CustomerName { get; set; }
         public float Distance { get; set; }
         public List<Event> Events { get; set; }
+
+        public Events.Domain.Response.Response Response { get; set; }
     }
 }

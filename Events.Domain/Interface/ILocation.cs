@@ -11,7 +11,7 @@ namespace Events.Domain.Interface
     {
         CustomerLongitudeLatitudeDto GetCustomerLatitudeLongitude(string customerCity);
         EventLongitudeLatitudeDto GetEventLatitudeLongitude(string eventCity);
-        float GetDistance(string customerCity, string eventCity);
-        float GetDistance(CustomerEventLongitudeLatitudeDto customer);
+        GetLocationDto GetDistance(string customerCity, string eventCity);
+        GetLocationDto GetDistance(CustomerEventLongitudeLatitudeDto customer);
     }
 }
